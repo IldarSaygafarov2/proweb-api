@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [
     '193.168.46.167'
 ]
 
+CSRF_TRUSTED_ORIGINS = ["https://api.prowebapi.tech"]
+
 
 # Application definition
 
