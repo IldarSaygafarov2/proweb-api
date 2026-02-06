@@ -20,6 +20,7 @@ load_dotenv()
 SITE_URL = os.getenv("SITE_URL")
 SITE_DOMAIN = os.getenv("SITE_DOMAIN")
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,9 +34,11 @@ SECRET_KEY = "django-insecure-5ag_!(-6fyl(x2&t(mwkw8b2eey+1q$oo1@k*wc0niske(8t9y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [SITE_DOMAIN, "193.168.46.167"]
+ALLOWED_HOSTS = [host for host in os.getenv("ALLOWED_HOSTS").split(",") if host]
 
-CSRF_TRUSTED_ORIGINS = [SITE_URL]
+CSRF_TRUSTED_ORIGINS = [
+    host for host in os.getenv("CSRF_TRUSTED_ORIGINS").split(",") if host
+]
 
 
 # Application definition
